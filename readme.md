@@ -6,6 +6,7 @@ Aligns multiple scan maps and combines into a single image. Images given on the 
 
 #### **Input:**
 <center><img src="images/map4.1.png" width="425"/> <img src="images/map4.2.png" width="425"/></center>
+
 #### **Output:**
 <center> <img src="images/output4.png" width="425"/></center>
 
@@ -17,7 +18,7 @@ An affine transformation, affine map or an affinity is a function between affine
 
 **Example:**
 
-<center>![Fern Affine Example](images/fractal_fern.png  "Fern Affine Example")</center>
+<center><img src="images/fractal_fern.png" alt="Fern Affine Example"/></center>
 
 An image of a fern-like fractal that exhibits affine self-similarity. Each of the leaves of the fern is related to each other leaf by an affine transformation. For instance, the red leaf can be transformed into both the small dark blue leaf and the large light blue leaf by a combination of reflection, rotation, scaling, and translation.
 
