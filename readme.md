@@ -28,6 +28,8 @@ OrbDescriptorExtractor is a wrapping class for computing descriptors by using th
 
 ORB is comparatively scale and rotation invariant while still employing the very efficient Hamming distance metric for matching.
 
+<center><img src="images/orb_detect_extract.png" alt="ORB Detect Extract Example"/></center>
+
 Also used BFMatcher to match keypoint descriptors. BFMatcher is going to try all the possibilities (which is the meaning of "Brute Force") and hence it will find the best matches.
 
 #### Instructions to Run:
