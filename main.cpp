@@ -4,13 +4,17 @@
 #include <algorithm>
 #include <opencv/highgui.h>
 #include "mapmerge.h"
-
+#include <cstdlib>
+#include <unistd.h>
 using namespace std;
 using namespace cv;
 
 int main(int argc, char** argv)
 {
-  bool verbose = false;
+  while(true){
+
+
+  bool verbose = true;
   string outfile = "final.pgm";
   vector<string> infiles;
   float max_distance = 5.;
@@ -20,7 +24,13 @@ int main(int argc, char** argv)
     cerr << "error: format <inputfile1> <inputfile2> <outputfile>" << endl;
     exit(-1);
   }
-
+  setenv("ROS_MASTER_URI", "http://192.168.0.110:11311", true);
+  system("echo $ROS_MASTER_URI");
+  system("rosrun map_server map_saver -f map110");
+  
+  setenv("ROS_MASTER_URI", "http://192.168.0.107:11311", true);
+  system("echo $ROS_MASTER_URI");
+  system("rosrun map_server map_saver -f map107");
   infiles.push_back(argv[1]);
   infiles.push_back(argv[2]);
   outfile = argv[3];
@@ -49,10 +59,11 @@ int main(int argc, char** argv)
   if (verbose) {
     namedWindow("wrap"); imshow("wrap", map.get_stitch()); imwrite("stitch.pgm", map.get_stitch());
     namedWindow("debug"); imshow("debug", map.get_debug()); imwrite("debug.pgm", map.get_debug());
-
-    while ((waitKey(0)&255) != 10) // RETURN
-      ;
+    waitKey(5000);
+    // while ((waitKey(0)&255) != 10) // RETURN
+    //   ;
   }
-
+  //usleep(10000000);
+  }
   return 0;
 }

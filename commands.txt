@@ -1,0 +1,5 @@
+g++ -c mapstitch.cpp
+
+g++ main.cpp mapstitch.o `pkg-config opencv --cflags --libs`
+
+./a.out
